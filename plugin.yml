@@ -1,0 +1,8 @@
+name: YouTubeCraft
+version: 1.0
+main: me.youtubecraft.Main
+description: Deze plugin is een test voor youtube!
+
+commands:
+      youtube:
+          description: youtube command!
