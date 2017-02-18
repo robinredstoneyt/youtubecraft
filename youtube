@@ -1,0 +1,39 @@
+package me.youtubecraft;
+
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import net.md_5.bungee.api.ChatColor;
+
+public class youtube implements CommandExecutor {
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+		if(!(sender instanceof Player));
+		
+		Player p = (Player) sender;
+		
+		if(!(p.hasPermission("ÿoutubecraft.youtube")))
+		{
+			p.sendMessage(ChatColor.RED + "Jij hebt de permission " + ChatColor.RED + ChatColor.UNDERLINE + "youtubecraft.youtube" + ChatColor.RED + " niet!");
+			return true;
+		}
+		
+		if(p.getAllowFlight())
+		{
+			p.setAllowFlight(false);
+			p.setFlying(false);
+			p.sendMessage("" + ChatColor.DARK_RED + ChatColor.BOLD + "Jij hebt je vliegen uitgeschakelt!");
+		}
+		else
+		{
+			p.setAllowFlight(true);
+			p.sendMessage("" + ChatColor.GREEN + ChatColor.BOLD + "Jij hebt je vliegen aangezet!");
+		}
+		
+		return true;
+	}
+
+}
